@@ -1,0 +1,213 @@
+@prefix : <http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5/> .
+
+<http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#играет_в_фильме
+:играет_в_фильме rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#исполяет_роль
+:исполяет_роль rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#производит
+:производит rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#режиссирует
+:режиссирует rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Актёр
+:Актёр rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Кино
+:Кино rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Режиссер
+:Режиссер rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Роль
+:Роль rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Сериал
+:Сериал rdf:type owl:Class ;
+        rdfs:subClassOf :Кино .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Студия
+:Студия rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Фильм
+:Фильм rdf:type owl:Class ;
+       rdfs:subClassOf :Кино .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#авав
+:авав rdf:type owl:Class ;
+      owl:deprecated "true"^^xsd:boolean .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Disney
+:Disney rdf:type owl:NamedIndividual ,
+                 :Студия ;
+        :производит :Пираты_Карибского_моря .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Paramount
+:Paramount rdf:type owl:NamedIndividual ,
+                    :Студия ;
+           :производит :Волк_с_Уолл_Стрит .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#WarnerBros
+:WarnerBros rdf:type owl:NamedIndividual ,
+                     :Студия ;
+            :производит :Начало .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Волк_с_Уолл_Стрит
+:Волк_с_Уолл_Стрит rdf:type owl:NamedIndividual ,
+                            :Фильм .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Гордость_и_предубеждение
+:Гордость_и_предубеждение rdf:type owl:NamedIndividual ,
+                                   :Фильм .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Джек_Воробей
+:Джек_Воробей rdf:type owl:NamedIndividual ,
+                       :Роль .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Джо_Райт
+:Джо_Райт rdf:type owl:NamedIndividual ,
+                   :Режиссер ;
+          :режиссирует :Гордость_и_предубеждение .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Джонни_Депп
+:Джонни_Депп rdf:type owl:NamedIndividual ,
+                      :Актёр ;
+             :играет_в_фильме :Пираты_Карибского_моря ,
+                              :Эдвард_руки-ножницы ;
+             :исполяет_роль :Джек_Воробей ,
+                            :Эдвард .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Джордан_Белфорт
+:Джордан_Белфорт rdf:type owl:NamedIndividual ,
+                          :Роль .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Дом_Кобб
+:Дом_Кобб rdf:type owl:NamedIndividual ,
+                   :Роль .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Инспектор
+:Инспектор rdf:type owl:NamedIndividual ,
+                    :Роль .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Кира_Найтли
+:Кира_Найтли rdf:type owl:NamedIndividual ,
+                      :Актёр ;
+             :играет_в_фильме :Гордость_и_предубеждение ,
+                              :Пираты_Карибского_моря ;
+             :исполяет_роль :Элизабет_Беннет .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Кристофер_Нолан
+:Кристофер_Нолан rdf:type owl:NamedIndividual ,
+                          :Режиссер ;
+                 :режиссирует :Начало .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Кухня
+:Кухня rdf:type owl:NamedIndividual ,
+                :Сериал .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Леонардо_Ди_Каприо
+:Леонардо_Ди_Каприо rdf:type owl:NamedIndividual ,
+                             :Актёр ;
+                    :играет_в_фильме :Волк_с_Уолл_Стрит ,
+                                     :Начало ;
+                    :исполяет_роль :Джордан_Белфорт ,
+                                   :Дом_Кобб .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Мартин_Скорсезе
+:Мартин_Скорсезе rdf:type owl:NamedIndividual ,
+                          :Режиссер ;
+                 :режиссирует :Волк_с_Уолл_Стрит .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Начало
+:Начало rdf:type owl:NamedIndividual ,
+                 :Фильм .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Пираты_Карибского_моря
+:Пираты_Карибского_моря rdf:type owl:NamedIndividual ,
+                                 :Фильм .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Сергей_Бурунов
+:Сергей_Бурунов rdf:type owl:NamedIndividual ,
+                         :Актёр ;
+                :играет_в_фильме :Кухня ;
+                :исполяет_роль :Инспектор .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Тим_Бертон
+:Тим_Бертон rdf:type owl:NamedIndividual ,
+                     :Режиссер ;
+            :режиссирует :Эдвард_руки-ножницы .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Эдвард
+:Эдвард rdf:type owl:NamedIndividual ,
+                 :Роль .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Эдвард_руки-ножницы
+:Эдвард_руки-ножницы rdf:type owl:NamedIndividual ,
+                              :Фильм .
+
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Элизабет_Беннет
+:Элизабет_Беннет rdf:type owl:NamedIndividual ,
+                          :Роль .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
