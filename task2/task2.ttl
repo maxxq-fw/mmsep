@@ -9,22 +9,18 @@
 #    Object Properties
 #################################################################
 
-###  Прямое отношение родитель-ребенок (НЕ транзитивное)
 :имеет_родителя rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :является_потомком ;
                 owl:inverseOf :является_родителем .
 
-###  Обратное к имеет_родителя
 :является_родителем rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :является_предком .
 
-###  Транзитивное свойство "является потомком"
 :является_потомком rdf:type owl:ObjectProperty ,
                             owl:TransitiveProperty ;
                    rdfs:subPropertyOf owl:topObjectProperty ;
                    owl:inverseOf :является_предком .
 
-###  Транзитивное свойство "является предком"  
 :является_предком rdf:type owl:ObjectProperty ,
                            owl:TransitiveProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty .
