@@ -1,0 +1,367 @@
+@prefix : <http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@base <http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5/> .
+
+<http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#играет_в_фильме
+:играет_в_фильме rdf:type owl:ObjectProperty .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#исполняет_роль
+:исполняет_роль rdf:type owl:ObjectProperty .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#производит
+:производит rdf:type owl:ObjectProperty .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#режиссирует
+:режиссирует rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Актёр
+:Актёр rdf:type owl:Class .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Кино
+:Кино rdf:type owl:Class .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Режиссер
+:Режиссер rdf:type owl:Class .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Роль
+:Роль rdf:type owl:Class .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Сериал
+:Сериал rdf:type owl:Class ;
+        rdfs:subClassOf :Кино .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Студия
+:Студия rdf:type owl:Class .
+
+###  http://www.semanticweb.org/maxim/ontologies/2025/9/untitled-ontology-5#Фильм
+:Фильм rdf:type owl:Class ;
+       rdfs:subClassOf :Кино .
+
+###  Новые классы для классификации
+:РежиссерАктёр rdf:type owl:Class .
+
+:АктёрСнималсяВФильме rdf:type owl:Class .
+
+:ФильмСнятСтудией rdf:type owl:Class .
+
+:АктёрРаботалСоСтудией rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+### Студии
+:Disney rdf:type owl:NamedIndividual ,
+                 :Студия ;
+        :производит :Пираты_Карибского_моря .
+
+:Paramount rdf:type owl:NamedIndividual ,
+                    :Студия ;
+           :производит :Волк_с_Уолл_Стрит .
+
+:WarnerBros rdf:type owl:NamedIndividual ,
+                     :Студия ;
+            :производит :Начало .
+
+### Фильмы
+:Волк_с_Уолл_Стрит rdf:type owl:NamedIndividual ,
+                            :Фильм .
+
+:Гордость_и_предубеждение rdf:type owl:NamedIndividual ,
+                                   :Фильм .
+
+:Начало rdf:type owl:NamedIndividual ,
+                 :Фильм .
+
+:Пираты_Карибского_моря rdf:type owl:NamedIndividual ,
+                                 :Фильм .
+
+:Эдвард_руки-ножницы rdf:type owl:NamedIndividual ,
+                              :Фильм .
+
+### Сериалы
+:Кухня rdf:type owl:NamedIndividual ,
+                :Сериал .
+
+### Актеры
+:Джонни_Депп rdf:type owl:NamedIndividual ,
+                      :Актёр ;
+             :играет_в_фильме :Пираты_Карибского_моря ,
+                              :Эдвард_руки-ножницы ;
+             :исполняет_роль :Джек_Воробей ,
+                            :Эдвард .
+
+:Кира_Найтли rdf:type owl:NamedIndividual ,
+                      :Актёр ;
+             :играет_в_фильме :Гордость_и_предубеждение ,
+                              :Пираты_Карибского_моря ;
+             :исполняет_роль :Элизабет_Беннет .
+
+:Леонардо_Ди_Каприо rdf:type owl:NamedIndividual ,
+                             :Актёр ;
+                    :играет_в_фильме :Волк_с_Уолл_Стрит ,
+                                     :Начало ;
+                    :исполняет_роль :Джордан_Белфорт ,
+                                   :Дом_Кобб .
+
+:Сергей_Бурунов rdf:type owl:NamedIndividual ,
+                         :Актёр ;
+                :играет_в_фильме :Кухня ;
+                :исполняет_роль :Инспектор .
+
+### Режиссеры
+:Джо_Райт rdf:type owl:NamedIndividual ,
+                   :Режиссер ;
+          :режиссирует :Гордость_и_предубеждение .
+
+:Кристофер_Нолан rdf:type owl:NamedIndividual ,
+                          :Режиссер ;
+                 :режиссирует :Начало .
+
+:Мартин_Скорсезе rdf:type owl:NamedIndividual ,
+                          :Режиссер ;
+                 :режиссирует :Волк_с_Уолл_Стрит .
+
+:Тим_Бертон rdf:type owl:NamedIndividual ,
+                     :Режиссер ;
+            :режиссирует :Эдвард_руки-ножницы .
+
+### Роли
+:Джек_Воробей rdf:type owl:NamedIndividual ,
+                       :Роль .
+
+:Джордан_Белфорт rdf:type owl:NamedIndividual ,
+                          :Роль .
+
+:Дом_Кобб rdf:type owl:NamedIndividual ,
+                   :Роль .
+
+:Инспектор rdf:type owl:NamedIndividual ,
+                    :Роль .
+
+:Эдвард rdf:type owl:NamedIndividual ,
+                 :Роль .
+
+:Элизабет_Беннет rdf:type owl:NamedIndividual ,
+                          :Роль .
+
+### ДОБАВЛЕННЫЕ СУЩНОСТИ ДЛЯ ПРИМЕРА:
+
+### Актер без фильмов
+:Актер_без_фильмов rdf:type owl:NamedIndividual ,
+                            :Актёр .
+
+### Фильм без студии
+:Одинокий_фильм rdf:type owl:NamedIndividual ,
+                         :Фильм .
+
+### Режиссер-актер (Клинт Иствуд)
+:Клинт_Иствуд rdf:type owl:NamedIndividual ,
+                       :Актёр ,
+                       :Режиссер ;
+              :играет_в_фильме :Непрощенный ;
+              :режиссирует :Непрощенный .
+
+:Непрощенный rdf:type owl:NamedIndividual ,
+                      :Фильм .
+
+### Новая студия с фильмом
+:Universal rdf:type owl:NamedIndividual ,
+                    :Студия ;
+           :производит :Форсаж .
+
+:Форсаж rdf:type owl:NamedIndividual ,
+                 :Фильм .
+
+
+#################################################################
+#    SWRL Rules
+#################################################################
+
+### Правило 1: Режиссер-Актёр
+[ rdf:type swrl:Imp ;
+  swrl:body [
+      rdf:type swrl:AtomList ;
+      rdf:first [
+          rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :Актёр ;
+          swrl:argument1 :person
+      ] ;
+      rdf:rest [
+          rdf:type swrl:AtomList ;
+          rdf:first [
+              rdf:type swrl:ClassAtom ;
+              swrl:classPredicate :Режиссер ;
+              swrl:argument1 :person
+          ] ;
+          rdf:rest rdf:nil
+      ]
+  ] ;
+  swrl:head [
+      rdf:type swrl:AtomList ;
+      rdf:first [
+          rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :РежиссерАктёр ;
+          swrl:argument1 :person
+      ] ;
+      rdf:rest rdf:nil
+  ]
+] .
+
+### Правило 2: Актёр снимался в фильме
+[ rdf:type swrl:Imp ;
+  swrl:body [
+      rdf:type swrl:AtomList ;
+      rdf:first [
+          rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :Актёр ;
+          swrl:argument1 :actor
+      ] ;
+      rdf:rest [
+          rdf:type swrl:AtomList ;
+          rdf:first [
+              rdf:type swrl:ClassAtom ;
+              swrl:classPredicate :Фильм ;
+              swrl:argument1 :movie
+          ] ;
+          rdf:rest [
+              rdf:type swrl:AtomList ;
+              rdf:first [
+                  rdf:type swrl:IndividualPropertyAtom ;
+                  swrl:propertyPredicate :играет_в_фильме ;
+                  swrl:argument1 :actor ;
+                  swrl:argument2 :movie
+              ] ;
+              rdf:rest rdf:nil
+          ]
+      ]
+  ] ;
+  swrl:head [
+      rdf:type swrl:AtomList ;
+      rdf:first [
+          rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :АктёрСнималсяВФильме ;
+          swrl:argument1 :actor
+      ] ;
+      rdf:rest rdf:nil
+  ]
+] .
+
+### Правило 3: Фильм снят студией
+[ rdf:type swrl:Imp ;
+  swrl:body [
+      rdf:type swrl:AtomList ;
+      rdf:first [
+          rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :Фильм ;
+          swrl:argument1 :movie
+      ] ;
+      rdf:rest [
+          rdf:type swrl:AtomList ;
+          rdf:first [
+              rdf:type swrl:ClassAtom ;
+              swrl:classPredicate :Студия ;
+              swrl:argument1 :studio
+          ] ;
+          rdf:rest [
+              rdf:type swrl:AtomList ;
+              rdf:first [
+                  rdf:type swrl:IndividualPropertyAtom ;
+                  swrl:propertyPredicate :производит ;
+                  swrl:argument1 :studio ;
+                  swrl:argument2 :movie
+              ] ;
+              rdf:rest rdf:nil
+          ]
+      ]
+  ] ;
+  swrl:head [
+      rdf:type swrl:AtomList ;
+      rdf:first [
+          rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :ФильмСнятСтудией ;
+          swrl:argument1 :movie
+      ] ;
+      rdf:rest rdf:nil
+  ]
+] .
+
+### Правило 4: Актёр работал со студией
+[ rdf:type swrl:Imp ;
+  swrl:body [
+      rdf:type swrl:AtomList ;
+      rdf:first [
+          rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :Актёр ;
+          swrl:argument1 :actor
+      ] ;
+      rdf:rest [
+          rdf:type swrl:AtomList ;
+          rdf:first [
+              rdf:type swrl:ClassAtom ;
+              swrl:classPredicate :Фильм ;
+              swrl:argument1 :movie
+          ] ;
+          rdf:rest [
+              rdf:type swrl:AtomList ;
+              rdf:first [
+                  rdf:type swrl:ClassAtom ;
+                  swrl:classPredicate :Студия ;
+                  swrl:argument1 :studio
+              ] ;
+              rdf:rest [
+                  rdf:type swrl:AtomList ;
+                  rdf:first [
+                      rdf:type swrl:IndividualPropertyAtom ;
+                      swrl:propertyPredicate :играет_в_фильме ;
+                      swrl:argument1 :actor ;
+                      swrl:argument2 :movie
+                  ] ;
+                  rdf:rest [
+                      rdf:type swrl:AtomList ;
+                      rdf:first [
+                          rdf:type swrl:IndividualPropertyAtom ;
+                          swrl:propertyPredicate :производит ;
+                          swrl:argument1 :studio ;
+                          swrl:argument2 :movie
+                      ] ;
+                      rdf:rest rdf:nil
+                  ]
+              ]
+          ]
+      ]
+  ] ;
+  swrl:head [
+      rdf:type swrl:AtomList ;
+      rdf:first [
+          rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :АктёрРаботалСоСтудией ;
+          swrl:argument1 :actor
+      ] ;
+      rdf:rest rdf:nil
+  ]
+] .
+
+### SWRL Variables
+:person rdf:type swrl:Variable .
+:actor rdf:type swrl:Variable .
+:movie rdf:type swrl:Variable .
+:studio rdf:type swrl:Variable .
